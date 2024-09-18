@@ -30,7 +30,7 @@ if __name__ == '__main__':
                 torch.nn.init.zeros_(m.bias)
     model.apply(init_weights)
     model = torch.compile(model)
-    trained_model = train(model, tokenizer, dataset, batch_size=3, learning_rate=2e-4, num_epochs=3, config=config)
+    trained_model = train(model, tokenizer, dataset, batch_size=3, learning_rate=2e-4, num_epochs=10, config=config)
     
     path = "tinywiki_model_Think"
     trained_model.save_pretrained(path)

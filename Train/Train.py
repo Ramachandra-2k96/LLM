@@ -88,5 +88,10 @@ def train(model, tokenizer, dataset, batch_size, learning_rate, num_epochs, conf
 
         avg_loss = total_loss / len(dataloader)
         print(f"Epoch {epoch + 1}/{num_epochs}, Average Loss: {avg_loss:.4f}")
+        if (epoch + 1) % 2 == 0:
+            checkpoint_path = f"checkpoint_epoch_{epoch + 1}"
+            model.save_pretrained(checkpoint_path)
+            tokenizer.save_pretrained(checkpoint_path)
+            print(f"Checkpoint saved at {checkpoint_path}")
     
     return model
