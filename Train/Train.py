@@ -30,7 +30,7 @@ def train(model, tokenizer, dataset, batch_size, learning_rate, num_epochs, conf
         batch_size=batch_size, 
         shuffle=True, 
         collate_fn=lambda batch: collate_fn(batch, pad_token_id),
-        num_workers=8,  # Increased for faster data loading
+        num_workers=4,  # Increased for faster data loading
         pin_memory=True
     )
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=0.01)
@@ -88,5 +88,10 @@ def train(model, tokenizer, dataset, batch_size, learning_rate, num_epochs, conf
 
         avg_loss = total_loss / len(dataloader)
         print(f"Epoch {epoch + 1}/{num_epochs}, Average Loss: {avg_loss:.4f}")
+        #if (epoch + 1) % 3 == 0:
+        checkpoint_path = f"checkpoint_epoch_{epoch + 1}"
+        model.save_pretrained(checkpoint_path)
+        tokenizer.save_pretrained(checkpoint_path)
+        print(f"Checkpoint saved at {checkpoint_path}")
     
     return model

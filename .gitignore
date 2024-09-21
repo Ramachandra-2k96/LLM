@@ -1,0 +1,86 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Install files
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pytest
+.cache/
+
+# IDE files (optional, e.g., for VSCode, PyCharm)
+.vscode/
+.idea/
+
+# Logs and other temporary files
+*.log
+*.out
+*.tmp
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Django stuff:
+*.migrations/
+
+# Flask stuff:
+instance/
+.webassets-cache/
+
+# PyTorch Lightning
+lightning_logs/
+
+# Local .env files containing secrets
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Database files
+*.sqlite3
+*.db
+
+# MacOS / Linux system files (optional)
+.DS_Store

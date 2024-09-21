@@ -1,7 +1,8 @@
 from transformers import PretrainedConfig
 
 class TransformerConfig(PretrainedConfig):
-    def __init__(self, 
+    def __init__(self,
+                 num_reflection_steps=3, 
                  vocab_size=30522,
                  hidden_size=768,
                  num_hidden_layers=12,
@@ -41,3 +42,4 @@ class TransformerConfig(PretrainedConfig):
         self.use_cache = use_cache
         self.max_grad_norm =max_grad_norm
         self.classifier_dropout = classifier_dropout
+        self.num_reflection_steps = num_reflection_steps

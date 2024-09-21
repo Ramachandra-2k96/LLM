@@ -1,4 +1,4 @@
-from datasets import load_dataset
+from datasets import load_dataset, concatenate_datasets
 from torch.utils.data import Dataset
 import torch
 from tqdm import tqdm
@@ -8,10 +8,9 @@ class TinyWikiDataset(Dataset):
     def __init__(self, tokenizer, block_size=128, max_articles=None):
         self.tokenizer = tokenizer
         self.block_size = block_size
-        
-        dataset = load_dataset("wikipedia", "20220301.simple", split="train")
+        print("Function called")
+        dataset = concatenate_datasets([load_dataset("wikipedia", "20220301.simple", split="train"), load_dataset("wikitext", "wikitext-2-v1", split="train")])
         self.examples = []
-        
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=block_size * 4,  # Larger chunk size to account for tokenization
             chunk_overlap=50,  # Reduced overlap to prevent duplicate content
